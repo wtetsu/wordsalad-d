@@ -178,15 +178,15 @@ class WordSaladGenerator
   protected string getString(string[] words, string[][string] dict, int num)
   {
     string result = null;
-    string key = createKey(words, words.length-num, words.length-1);
+    string key = createKey(words, cast(int)words.length-num, cast(int)words.length-1);
     if (key in dict)
     {
       string[] candidates = dict[key];
-      result = candidates[getRand(0, candidates.length-1)];
+      result = candidates[getRand(0, cast(int)candidates.length-1)];
     }
     if (!result)
     {
-      result = _allWords[ getRand(0, _allWords.length-1) ];
+      result = _allWords[ getRand(0, cast(int)_allWords.length-1) ];
     }
     return result;
   }
@@ -214,7 +214,7 @@ class WordSaladGenerator
       int t = c + charNum;
       if (t > str.length)
       {
-        t = str.length;
+        t = cast(int)str.length;
       }
       string s = str[c..t];
       lines ~= s;
